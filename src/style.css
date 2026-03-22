@@ -1,0 +1,278 @@
+:root {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #10203a;
+  background:
+    radial-gradient(circle at top left, rgba(255, 214, 153, 0.85), transparent 28%),
+    radial-gradient(circle at right 20%, rgba(131, 179, 255, 0.55), transparent 24%),
+    linear-gradient(135deg, #f9f4eb 0%, #eef5ff 50%, #f7fbfd 100%);
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+code {
+  padding: 0.08em 0.38em;
+  border-radius: 999px;
+  background: rgba(16, 32, 58, 0.08);
+  font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+  font-size: 0.92em;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.shell {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 48px 0 64px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.8fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #b35b2f;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.intro {
+  max-width: 62ch;
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  color: #30435c;
+}
+
+.panel,
+.notice {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 32, 58, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(43, 67, 102, 0.12);
+}
+
+.notice {
+  padding: 24px;
+  align-self: stretch;
+}
+
+.notice h2 {
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+}
+
+.notice p {
+  margin: 0 0 8px;
+  color: #425369;
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
+.panel {
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field span {
+  font-weight: 600;
+  color: #23324a;
+}
+
+.field-help {
+  color: #5a6b83;
+  font-size: 0.9rem;
+}
+
+.field-wide {
+  grid-column: 1 / -1;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(16, 32, 58, 0.15);
+  border-radius: 18px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #10203a;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(21, 116, 239, 0.48);
+  box-shadow: 0 0 0 6px rgba(21, 116, 239, 0.12);
+  transform: translateY(-1px);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 240px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.actions button {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  min-width: 180px;
+  font-weight: 700;
+  color: #fffdf8;
+  background: linear-gradient(135deg, #d05f1f 0%, #ef7e28 100%);
+  box-shadow: 0 16px 28px rgba(208, 95, 31, 0.28);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.actions button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 32px rgba(208, 95, 31, 0.32);
+}
+
+.actions button:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+.status {
+  margin: 0;
+  min-height: 24px;
+  font-weight: 600;
+}
+
+.status[data-tone="info"] {
+  color: #2b4ea1;
+}
+
+.status[data-tone="success"] {
+  color: #0a7d47;
+}
+
+.status[data-tone="error"] {
+  color: #b42318;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.result-header p {
+  margin: 0;
+  color: #5a6b83;
+}
+
+.response {
+  margin: 0;
+  padding: 18px;
+  min-height: 220px;
+  overflow: auto;
+  border-radius: 20px;
+  background: #0f1729;
+  color: #d8e0f2;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shell {
+    width: min(100vw - 24px, 1120px);
+    padding-top: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .panel,
+  .notice {
+    border-radius: 22px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+}
