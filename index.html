@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>每日复盘</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./dist/main.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <section class="panel">
+        <div class="panel__intro">
+          <p class="eyebrow">Daily Review</p>
+          <h1>每日复盘记录</h1>
+        </div>
+
+        <form id="review-form" class="form">
+          <details class="settings-panel">
+            <summary>提交设置</summary>
+
+            <div class="settings-panel__body">
+              <label class="field">
+                <span>GitHub 仓库链接</span>
+                <input
+                  id="repoUrl"
+                  name="repoUrl"
+                  type="text"
+                  value="git@github.com:yczhy/ReviewSelf.git"
+                  placeholder="例如：git@github.com:yczhy/ReviewSelf.git"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </label>
+
+              <label class="field">
+                <span>GitHub Token</span>
+                <input
+                  id="token"
+                  name="token"
+                  type="password"
+                  placeholder="请填写有仓库写入权限的 Personal Access Token"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <small>需要仓库写权限。</small>
+              </label>
+
+              <p id="filePathHint" class="settings-panel__path">提交路径：reviews/今天日期.md</p>
+            </div>
+          </details>
+
+          <section class="review-tools" aria-label="复盘提示与提交">
+            <div class="hint-box">
+              <div class="hint-box__top">
+                <p class="hint-box__title">复盘提示</p>
+              </div>
+
+              <p class="hint-box__intro">一条一行，尽量短：</p>
+
+              <div class="hint-grid">
+                <p><strong>E</strong> 报错 / 写错</p>
+                <p><strong>B</strong> 卡住超过 3 分钟</p>
+                <p><strong>D</strong> 做了什么决定</p>
+                <p><strong>R</strong> 感觉不对但先继续</p>
+                <p><strong>T</strong> 当前在做什么</p>
+              </div>
+
+              <p class="hint-box__intro">格式：<code>类型 一句话 #标签</code></p>
+
+              <pre class="hint-example">E 参数写错 #数据
+B 边界不清 #逻辑
+D 改用list #结构
+R 先按这个写 #逻辑
+T 写scroll拖动</pre>
+            </div>
+
+            <aside class="action-card">
+              <p class="action-card__title">写完就提交</p>
+              <p class="action-card__text">同一天会自动追加到同一个文件。</p>
+
+              <button id="submitButton" class="submit-button" type="submit">
+                提交到 GitHub
+              </button>
+            </aside>
+          </section>
+
+          <label class="field">
+            <span>记录内容：</span>
+            <textarea
+              id="reviewContent"
+              name="reviewContent"
+              rows="12"
+              placeholder="E 参数写错 #数据&#10;B 边界不清 #逻辑&#10;D 改用list #结构&#10;R 先按这个写 #逻辑&#10;T 写scroll拖动"
+            ></textarea>
+          </label>
+
+          <div id="status" class="status" aria-live="polite"></div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
